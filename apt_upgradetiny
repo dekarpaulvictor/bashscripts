@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -e
+set -x
+
+# Upgrade all Ubuntu packages, leaving out specific ones. Put the first word of package
+# to omit after grep -Ev
+
+#sudo apt update
+for apt_pkg in $(sudo apt list --upgradeable 2> /dev/null | grep -Ev 'Listing|google|firefox|mongodb' | cut -d '/' -f1); do
+  sudo apt -y install "$apt_pkg"
+done

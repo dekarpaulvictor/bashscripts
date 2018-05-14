@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+set -x
+
+## Uprade all upgradeable Ubuntu packages
+
+sudo apt update
+sudo apt -y upgrade

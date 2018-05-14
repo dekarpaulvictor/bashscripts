@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -e
+set -x
+
+## Upgrades all global rubygems
+
+for gem_pkg in $(gem outdated | cut -d ' ' -f1); do
+  gem update --force --no-document "$gem_pkg"
+done
